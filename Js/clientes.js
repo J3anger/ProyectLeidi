@@ -57,13 +57,6 @@ const data = [
     avatar: "Img/avatar7.png",
     rating: 4
   },
-  {
-    name: "LUCÍA A",
-    role: "— Jefa de Marketing",
-    text: "“Ahora tenemos línea gráfica y mensajes consistentes. El equipo es rápido y muy profesional.”",
-    avatar: "Img/avatar8.png",
-    rating: 5
-  }
 ];
 
 let i = 0;
