@@ -1,0 +1,361 @@
+/* =========================
+   NOSOTROS MAIN
+   ========================= */
+.nosotros{
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+/* =========================
+   CABECERA
+   ========================= */
+.nosotros-head{
+  padding: 22px 0 12px;
+}
+
+.head-grid{
+  display:grid;
+  grid-template-columns: auto 10px 1fr;
+  align-items:flex-end;
+  gap: 16px;
+  animation: fadeUp .8s ease both;
+}
+
+.head-title{
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 900;
+  line-height: .92;
+  letter-spacing: .01em;
+  color: var(--green);
+  margin: 0;
+}
+
+.head-line{
+  width: 2px;
+  height: 58px;
+  background: var(--green);
+  opacity: .9;
+}
+
+.head-tag{
+  font-size: 15px;
+  line-height: 1.4;
+  color:#173f33;
+  max-width: 460px;
+  opacity: .92;
+}
+
+/* =========================
+   MISIÓN / VISIÓN
+   ========================= */
+.mv2{
+  padding: 0;
+}
+
+.mv2-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 2px solid var(--green);
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 16px 34px rgba(0,0,0,.10);
+  animation: fadeUp .8s ease .05s both;
+}
+
+/* MISIÓN */
+.mv2-mision{
+  background: #fffdf5;
+  padding: 28px 36px 32px;
+  padding-right: 72px;
+  position: relative;
+  z-index: 2;
+  clip-path: polygon(0 0,100% 0,97.5% 100%,0 100%);
+}
+
+.mv2-mision::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(15,61,46,.10), transparent 55%),
+    radial-gradient(circle at 80% 40%, rgba(0,0,0,.06), transparent 60%);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.mv2-content-mision{
+  position:relative;
+  z-index:2;
+  text-align: left;
+}
+
+.mv2-content-mision h2{
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 14px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.mv2-content-mision p{
+  font-size: 16px;
+  line-height: 1.65;
+  color:#1b4337;
+  margin: 0;
+  opacity:.95;
+}
+
+/* VISIÓN */
+.mv2-vision{
+  background: linear-gradient(180deg, var(--green), var(--green-2));
+  color:#fff;
+  padding: 28px 36px 32px 56px;
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(2.5% 0,100% 0,100% 100%,0 100%);
+}
+
+.mv2-vision::after{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.12),
+    transparent
+  );
+  transform: rotate(18deg) translateX(-70%);
+  animation: sheen 6.5s ease-in-out infinite;
+  pointer-events:none;
+  opacity:.55;
+}
+
+.mv2-content-vision{
+  position:relative;
+  z-index:2;
+  text-align: center;
+}
+
+.mv2-content-vision h2{
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 900;
+  margin-bottom: 14px;
+  color:#fff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.mv2-content-vision p{
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+  color: #fff;
+  opacity:.95;
+}
+
+/* =========================
+   VALORES
+   ========================= */
+.valores2{
+  padding: 28px 0 36px;
+}
+
+.valores2-sub{
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 18px;
+  animation: fadeUp .8s ease both;
+}
+
+.valores2-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.valor2{
+  background: #fff;
+  border: 2px solid rgba(15,61,46,.18);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 14px 28px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  animation: fadeUp .85s ease both;
+}
+
+.valor2:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 38px rgba(0,0,0,.12);
+  border-color: rgba(15,61,46,.35);
+}
+
+.valor-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.valor-icon{
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.12));
+}
+
+.valor2 h4{
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--green);
+  margin: 0;
+}
+
+.valor2 p{
+  font-size: 14px;
+  line-height: 1.55;
+  color: #173f33;
+  margin: 0;
+  opacity:.95;
+}
+
+/* =========================
+   METODOLOGÍA
+   ========================= */
+.metodo{
+  background: linear-gradient(180deg, var(--green), var(--green-2));
+  padding: 38px 0 40px;
+  margin-top: 6px;
+}
+
+.metodo-title{
+  color:#fff;
+  text-align:center;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 900;
+  margin-bottom: 26px;
+  animation: fadeUp .85s ease both;
+}
+
+.metodo-grid{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+}
+
+.paso{
+  background:#f6f3df;
+  border-radius: 16px;
+  padding: 18px;
+  border: 2px solid rgba(0,0,0,.08);
+  box-shadow: 0 16px 34px rgba(0,0,0,.10);
+  transition:
+    transform .35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .35s ease,
+    border-color .25s ease;
+  animation: fadeUp .9s ease both;
+}
+
+.paso:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 28px 50px rgba(0,0,0,.18);
+  border-color: rgba(15,61,46,.45);
+}
+
+.paso-top{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.paso-num{
+  font-size: 50px;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+}
+
+.paso-icon{
+  width: 52px;
+}
+
+.paso-title{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.paso p{
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.55;
+  color:#173f33;
+  margin: 0;
+  opacity:.95;
+}
+
+/* CTA → usa botón global */
+.metodo-cta{
+  display:flex;
+  justify-content:center;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 980px){
+  .valores2-grid{ grid-template-columns: repeat(2, 1fr); }
+  .metodo-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px){
+  .head-grid{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .head-line{ display:none; }
+
+  .mv2-grid{ grid-template-columns: 1fr; }
+
+  .mv2-mision,
+  .mv2-vision{
+    clip-path:none;
+    padding: 22px;
+  }
+
+  .valores2-grid,
+  .metodo-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(16px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@keyframes sheen{
+  0%{ transform: rotate(18deg) translateX(-70%); opacity:0; }
+  15%{ opacity:.9; }
+  35%{ transform: rotate(18deg) translateX(70%); opacity:0; }
+  100%{ opacity:0; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none!important; transition:none!important; }
+}

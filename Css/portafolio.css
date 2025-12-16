@@ -1,0 +1,652 @@
+/* =========================
+   PORTAFOLIO / CASOS (OPTIMIZADO)
+   ========================= */
+
+:root {
+  --cream: #efe7d0;
+  --cream-2: #f4f0db;
+  --cream-flat: #efe6cc;
+
+  --teal: #234c4f;
+  --teal-2: #1b3f42;
+
+  --green: #0f3d2e;
+  --gold: #DDA329;
+
+  --ink: #0b2c22;
+  --text: #1a1a1a;
+  --white: #ffffff;
+
+  --radius: 18px;
+  --shadow: 0 18px 45px rgba(0, 0, 0, .14);
+  --shadow-strong: 0 26px 55px rgba(0, 0, 0, .18);
+  --max: 1100px;
+
+  /* tamaños control */
+  --circle: 120px;
+  --img: 300px;
+  --logo: 200px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   BASE
+   ========================= */
+main.casos {
+  background: var(--cream);
+  padding: 0 0 56px;
+}
+
+.casos .container {
+  width: min(var(--max), 92%);
+  margin-inline: auto;
+}
+
+/* =========================
+   HERO PORTAFOLIO
+   ========================= */
+.hero-portfolio {
+  position: relative;
+  width: 100%;
+  height: clamp(210px, 28vw, 310px);
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  filter: contrast(1.05) saturate(1.05);
+  animation: heroZoom 1.2s ease forwards;
+}
+
+.hero-portfolio-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 0 6%;
+  color: var(--white);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .30));
+}
+
+.hero-portfolio-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  letter-spacing: .10em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  animation: popIn .9s ease .05s both;
+}
+
+.hero-subtitle {
+  margin: 0 0 6px;
+  font-size: clamp(.98rem, 2.1vw, 1.15rem);
+  opacity: .95;
+  animation: slideUp .9s ease .15s both;
+}
+
+.hero-text {
+  margin: 0;
+  font-size: clamp(.9rem, 1.8vw, 1rem);
+  opacity: .92;
+  max-width: 720px;
+  margin-inline: auto;
+  line-height: 1.5;
+  animation: slideUp .9s ease .25s both;
+}
+
+/* =========================
+   TARJETAS (BASE)
+   ========================= */
+.caso {
+  margin: 26px auto;
+}
+
+.caso .container {
+  position: relative;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 34px;
+  overflow: hidden;
+  animation: caseIn .85s ease both;
+}
+
+.caso-light .container {
+  background: linear-gradient(180deg, var(--cream-2), var(--cream));
+  color: var(--green);
+}
+
+.caso-dark .container {
+  background: linear-gradient(180deg, var(--teal), var(--teal-2));
+  color: var(--white);
+}
+
+/* brillo suave de fondo (NO tapa el contenido) */
+.caso .container::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .16), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(221, 163, 41, .18), transparent 55%);
+  opacity: .5;
+  pointer-events: none;
+  animation: glowMove 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.caso-head,
+.caso-body {
+  position: relative;
+  z-index: 2;
+}
+
+.caso .container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+  transition: .25s ease;
+}
+
+/* =========================
+   HEADER (BASE)
+   ========================= */
+.caso-head {
+  display: grid;
+  grid-template-columns: 1.2fr auto 1fr;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.caso-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.caso-mini {
+  margin-top: 6px;
+  font-size: .92rem;
+  opacity: .82;
+}
+
+.caso-claim {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 650;
+  text-align: right;
+  color: var(--text);
+}
+
+.caso-head-line {
+  width: 2px;
+  height: 62px;
+  background: rgba(15, 61, 46, .38);
+}
+
+.caso-dark .caso-head-line {
+  background: rgba(255, 255, 255, .42);
+}
+
+.caso-head--dark {
+  grid-template-columns: 1fr auto 1.2fr;
+}
+
+.caso-claim--left {
+  text-align: left;
+  color: var(--white);
+}
+
+.caso-title--light,
+.caso-mini--light {
+  color: var(--white);
+}
+
+/* =========================
+   CUERPO (BASE)
+   ========================= */
+.caso-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 26px;
+}
+
+.caso-body--nsg {
+  grid-template-columns: 1fr 1.4fr 1fr;
+}
+
+.caso-metric {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+/* círculo base */
+.metric-circle {
+  width: var(--circle);
+  height: var(--circle);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  background: radial-gradient(circle at 30% 30%, #ffd57a, var(--gold));
+  color: var(--ink);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, .14);
+  animation: pulse 2.2s ease-in-out infinite;
+  position: relative;
+  z-index: 3;
+}
+
+.metric-title {
+  font-size: 1rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.metric-desc {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+.metric-quote {
+  margin-top: 14px;
+  font-style: italic;
+  opacity: .85;
+  border-left: 3px solid rgba(15, 61, 46, .28);
+  padding-left: 14px;
+}
+
+.metric-title--light,
+.metric-desc--light {
+  color: var(--white);
+}
+
+/* imágenes base */
+.caso-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.caso-img,
+.caso-image {
+  max-width: var(--img);
+  border-radius: 12px;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .14));
+  animation: floaty 3.6s ease-in-out infinite;
+}
+
+.caso-logo {
+  max-width: var(--logo);
+  filter: drop-shadow(0 16px 26px rgba(0, 0, 0, .18));
+  animation: floaty 3.6s ease-in-out infinite;
+}
+
+.caso .container:hover .caso-img,
+.caso .container:hover .caso-image,
+.caso .container:hover .caso-logo {
+  transform: translateY(-2px) scale(1.02);
+  transition: .25s ease;
+}
+
+/* =========================
+   CTA
+   ========================= */
+.casos-cta {
+  width: min(var(--max), 92%);
+  margin: 10px auto 0;
+  display: grid;
+  place-items: center;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .16);
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s ease;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .28), transparent);
+  transform: rotate(22deg) translateX(-70%);
+  animation: btnSheen 3.6s ease-in-out infinite;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* ==================================================
+   OVERRIDES “IGUALITO” A TUS REFERENCIAS
+   ================================================== */
+
+/* ---------- LA MORDIDA (igualito) ---------- */
+#la-mordida .container {
+  background: var(--cream-flat);
+}
+
+#la-mordida .caso-head {
+  grid-template-columns: auto 24px 1fr;
+  align-items: center;
+}
+
+#la-mordida .caso-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--green);
+  letter-spacing: .02em;
+}
+
+#la-mordida .caso-mini {
+  font-size: .8rem;
+  opacity: .75;
+}
+
+#la-mordida .caso-head-line {
+  height: 64px;
+  background: var(--green);
+}
+
+#la-mordida .caso-claim {
+  text-align: right;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+#la-mordida .caso-body {
+  grid-template-columns: auto 1fr auto;
+  gap: 48px;
+  margin-top: 10px;
+}
+
+#la-mordida .metric-circle {
+  width: 150px;
+  height: 150px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000;
+  background: #e0ad32;
+  box-shadow: 0 18px 28px rgba(0, 0, 0, .18);
+  animation: none;
+}
+
+#la-mordida .metric-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+#la-mordida .metric-desc {
+  max-width: 360px;
+  font-size: .9rem;
+}
+
+#la-mordida .caso-img {
+  max-width: 300px;
+  animation: none;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .18));
+}
+
+/* ---------- NSG (círculo +25% más grueso/grande) ---------- */
+#nsg .metric-circle {
+  width: 150px;
+  height: 150px;
+  background: #e0ad32;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  box-shadow: 0 18px 28px rgba(0, 0, 0, .22);
+  animation: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ---------- GO GUMMIES (igualito) ---------- */
+#go-gummies .container {
+  background: var(--cream-flat);
+}
+
+#go-gummies .caso-head {
+  grid-template-columns: auto 24px 1fr;
+  align-items: center;
+}
+
+#go-gummies .caso-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--green);
+  letter-spacing: .02em;
+}
+
+#go-gummies .caso-mini {
+  font-size: .78rem;
+  opacity: .75;
+}
+
+#go-gummies .caso-head-line {
+  height: 64px;
+  background: var(--green);
+}
+
+#go-gummies .caso-claim {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+#go-gummies .caso-body {
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 46px;
+  margin-top: 10px;
+}
+
+#go-gummies .metric-circle {
+  width: 150px;
+  height: 150px;
+  background: #e0ad32;
+  color: #000;
+  font-size: .95rem;
+  font-weight: 800;
+  box-shadow: 0 18px 28px rgba(0, 0, 0, .18);
+  animation: none;
+}
+
+#go-gummies .metric-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--text);
+}
+
+#go-gummies .metric-desc {
+  max-width: 360px;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+#go-gummies .metric-quote {
+  font-size: .75rem;
+  opacity: .7;
+  margin-top: 12px;
+  border: none;
+  padding-left: 0;
+}
+
+#go-gummies .caso-image {
+  max-width: 280px;
+  border-radius: 0;
+  animation: none;
+  box-shadow: 0 14px 22px rgba(0, 0, 0, .18);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 920px) {
+  .caso .container {
+    padding: 28px 24px;
+  }
+
+  .caso-head {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .caso-head-line {
+    display: none;
+  }
+
+  .caso-claim {
+    text-align: left;
+  }
+
+  .caso-body,
+  .caso-body--nsg {
+    grid-template-columns: 1fr;
+  }
+
+  .caso-img,
+  .caso-image {
+    max-width: 240px;
+    margin: 12px auto 0;
+  }
+
+  .caso-logo {
+    max-width: 170px;
+    margin: 12px auto 0;
+  }
+
+  /* En mobile: centra los claims de las secciones “igualito” */
+  #la-mordida .caso-claim,
+  #go-gummies .caso-claim {
+    text-align: center;
+  }
+
+  #la-mordida .caso-head,
+  #go-gummies .caso-head {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.15);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes caseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glowMove {
+
+  0%,
+  100% {
+    transform: translateX(-2%);
+  }
+
+  50% {
+    transform: translateX(2%);
+  }
+  }

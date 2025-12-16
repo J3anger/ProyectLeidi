@@ -1,0 +1,406 @@
+/* =========================
+   CLIENTES (IMG GRANDE + RESEÑA) - MEJORADO
+   ========================= */
+
+:root {
+    --cream: #efe7d0;
+    --green: #0f3d2e;
+    --gold: #DDA329;
+    --hero-bg: #8a7c61;
+
+    --radius: 14px;
+    --shadow: 0 18px 40px rgba(0, 0, 0, .16);
+    --glass: rgba(255, 255, 255, .14);
+    --glass-2: rgba(255, 255, 255, .08);
+}
+
+/* ----- MAIN ----- */
+.clientes-main {
+    background: var(--cream);
+    padding: 54px 0 70px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ----- Head ----- */
+.clientes-head {
+    width: min(1100px, 92%);
+    margin: 0 auto 18px;
+    text-align: center;
+}
+
+.clientes-head h1 {
+    margin: 0;
+    color: var(--green);
+    font-weight: 900;
+    line-height: 1.05;
+    font-size: clamp(2.1rem, 4.3vw, 2.9rem);
+    letter-spacing: .01em;
+}
+
+.clientes-head h1 span {
+    display: block;
+}
+
+.clientes-head p {
+    margin: 10px auto 0;
+    max-width: 680px;
+    color: #1a1a1a;
+    opacity: .85;
+    font-size: .95rem;
+}
+
+/* =========================
+   HERO (Imagen grande)
+   ========================= */
+.clientes-hero {
+    width: min(1100px, 92%);
+    margin: 14px auto 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Track */
+.clientes-hero-track {
+    display: flex;
+    transition: transform .75s cubic-bezier(.22, .75, .2, 1);
+    will-change: transform;
+}
+
+/* Slide */
+.hero-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.hero-img-box {
+    height: 420px;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Decor: luz suave */
+.hero-img-box::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background:
+        radial-gradient(circle at 20% 25%, rgba(255, 255, 255, .22), transparent 50%),
+        radial-gradient(circle at 80% 45%, rgba(0, 0, 0, .18), transparent 55%);
+    opacity: .8;
+    pointer-events: none;
+    animation: heroGlow 7s ease-in-out infinite;
+}
+
+/* ✅ VIDRIO (panel glass) */
+.hero-img-box::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--glass), var(--glass-2));
+    border: 1px solid rgba(255, 255, 255, .22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18);
+    pointer-events: none;
+    animation: glassSheen 4.8s ease-in-out infinite;
+}
+
+/* ✅ IMAGEN MISMO TAMAÑO (SIN DEFORMAR) */
+.hero-img {
+    width: 520px;
+    /* tamaño fijo */
+    height: 320px;
+    /* tamaño fijo */
+    object-fit: contain;
+    /* no deforma */
+    z-index: 2;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .22));
+    animation: floatLogo 3.8s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 900px) {
+    .hero-img-box {
+        height: 320px;
+    }
+
+    .hero-img {
+        width: 360px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-img {
+        width: 300px;
+        height: 210px;
+    }
+}
+
+/* =========================
+   RESEÑA
+   ========================= */
+.clientes-review-area {
+    width: min(1100px, 92%);
+    margin: 16px auto 0;
+}
+
+.cliente-review-card {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items: center;
+
+    /* animación entrada */
+    animation: reviewPop .7s ease both;
+}
+
+.avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, .15);
+}
+
+.review-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, .12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* brillo suave dentro de la caja */
+.review-box::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .30), transparent);
+    transform: rotate(18deg) translateX(-70%);
+    animation: reviewSheen 5.2s ease-in-out infinite;
+    pointer-events: none;
+    opacity: .6;
+}
+
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.review-name {
+    font-size: .86rem;
+    letter-spacing: .03em;
+    color: #1a1a1a;
+    font-weight: 800;
+}
+
+.review-text {
+    margin: 0;
+    font-size: .88rem;
+    line-height: 1.55;
+    color: #333;
+}
+
+.review-role {
+    display: block;
+    margin-top: 6px;
+    font-size: .8rem;
+    opacity: .75;
+}
+
+/* estrellas */
+.stars {
+    display: inline-flex;
+    gap: 3px;
+}
+
+.star {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: #d0d0d0;
+}
+
+.star.filled {
+    background: var(--gold);
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .15));
+}
+
+/* =========================
+   CTA
+   ========================= */
+.clientes-cta {
+    display: grid;
+    place-items: center;
+    margin-top: 18px;
+}
+
+.btn-clientes {
+    background: var(--green);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-clientes::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+    transform: rotate(20deg) translateX(-70%);
+    animation: btnSheen 3.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.btn-clientes:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
+    filter: brightness(1.03);
+}
+
+/* =========================
+   Responsive review
+   ========================= */
+@media (max-width: 900px) {
+    .cliente-review-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .avatar {
+        margin: 0 auto;
+    }
+
+    .review-top {
+        justify-content: center;
+    }
+}
+
+/* =========================
+   Animaciones
+   ========================= */
+
+@keyframes floatLogo {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-7px) scale(1.01);
+    }
+}
+
+@keyframes heroGlow {
+
+    0%,
+    100% {
+        transform: translateX(-2%) translateY(0);
+        opacity: .75;
+    }
+
+    50% {
+        transform: translateX(2%) translateY(-1%);
+        opacity: .95;
+    }
+}
+
+@keyframes glassSheen {
+    0% {
+        filter: none;
+        opacity: .85;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .85;
+    }
+}
+
+@keyframes reviewPop {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reviewSheen {
+    0% {
+        transform: rotate(18deg) translateX(-70%);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    35% {
+        transform: rotate(18deg) translateX(70%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes btnSheen {
+    0% {
+        transform: rotate(20deg) translateX(-70%);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    35% {
+        transform: rotate(20deg) translateX(70%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

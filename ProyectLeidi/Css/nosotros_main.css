@@ -1,0 +1,258 @@
+/* ================= NOSOTROS MAIN ================= */
+.nosotros{
+  background: var(--cream);
+}
+
+/* ================= CABECERA (IGUAL A LA IMAGEN) ================= */
+.nosotros-head{
+  background: var(--cream);
+  padding: 14px 0 6px;
+}
+
+.head-grid{
+  display:grid;
+  grid-template-columns: auto 10px 1fr;   /* título | línea | texto */
+  align-items:start;
+  gap: 14px;
+}
+
+.head-title{
+  font-size: 56px;      /* título grande */
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: .01em;
+  color: var(--green);
+  margin: 0;
+}
+
+.head-line{
+  width: 2px;
+  height: 54px;
+  background: rgba(15,61,46,.55);
+  margin-top: 6px;
+}
+
+.head-tag{
+  margin: 6px 0 0;
+  font-size: 11px;
+  line-height: 1.25;
+  color: #173f33;
+  max-width: 420px;
+}
+
+/* ================= MISIÓN / VISIÓN (IGUAL A LA IMAGEN) ================= */
+.mv2{
+  background: var(--cream);
+  padding: 6px 0 0;
+}
+
+.mv2-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 2px solid rgba(15,61,46,.35);
+}
+
+.mv2-mision,
+.mv2-vision{
+  padding: 14px 16px 16px;
+  min-height: 140px;
+}
+
+/* MISIÓN (claro) */
+.mv2-mision{
+  background: var(--cream);
+  border-right: 2px solid rgba(15,61,46,.35);
+}
+
+.mv2-mision h2{
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--green);
+  margin: 0 0 8px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.mv2-mision p{
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color:#1b4337;
+  text-align:center;
+  max-width: 420px;
+}
+
+/* VISIÓN (verde oscuro) */
+.mv2-vision{
+  background: var(--green);
+  color: #fff;
+}
+
+.mv2-vision h2{
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 8px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.mv2-vision p{
+  margin: 0;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color:#fff;
+  text-align:right;
+  max-width: 420px;
+  margin-left:auto;
+}
+
+/* ================= VALORES ================= */
+.valores2{
+  padding: 12px 0 18px;
+}
+
+.valores2-sub{
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.valores2-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.valor2{
+  background:#fff;
+  border: 2px solid rgba(15,61,46,.22);
+  border-radius: 10px;
+  padding: 12px 12px;
+}
+
+.valor2 h4{
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.valor2 p{
+  font-size: 12px;
+  line-height: 1.45;
+  color:#173f33;
+}
+
+/* ================= METODOLOGÍA ================= */
+.metodo{
+  background: var(--green);
+  padding: 22px 0 22px;
+  margin-top: 8px;
+}
+
+.metodo-title{
+  color:#fff;
+  text-align:center;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.metodo-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.paso{
+  background: #f3f0dc;
+  border-radius: 12px;
+  padding: 12px 12px;
+  border: 2px solid rgba(0,0,0,.08);
+}
+
+.paso-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom: 8px;
+}
+
+.paso-num{
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+}
+
+.paso-icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 2px solid rgba(15,61,46,.18);
+  background: rgba(255,255,255,.55);
+}
+
+.paso-title{
+  font-size: 12.5px;
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.paso p{
+  font-size: 12px;
+  color:#173f33;
+  line-height: 1.45;
+}
+
+/* CTA dentro de metodología */
+.metodo-cta{
+  display:flex;
+  justify-content:center;
+  padding-top: 4px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px){
+  .head-title{ font-size: 48px; }
+  .valores2-grid{ grid-template-columns: 1fr 1fr; }
+  .metodo-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px){
+  .head-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .head-line{
+    display:none;
+  }
+
+  .head-title{
+    font-size: 44px;
+  }
+
+  .mv2-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .mv2-mision{
+    border-right: none;
+    border-bottom: 2px solid rgba(15,61,46,.35);
+  }
+
+  .mv2-vision p{
+    text-align:left;
+    margin-left:0;
+  }
+
+  .valores2-grid{ grid-template-columns: 1fr; }
+  .metodo-grid{ grid-template-columns: 1fr; }
+}

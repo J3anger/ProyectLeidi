@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quinta Esencia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="Css/styles.css" />
+    <link rel="stylesheet" href="Css/equipo.css" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-content">
+            <a class="logo" href="index.html" aria-label="Quinta Esencia">
+                <img src="Img/Logo.png" alt="Logo Quinta Esencia" />
+            </a>
+
+            <nav class="nav" aria-label="Menú principal">
+                <ul>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="equipo.html">Equipo</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="equipo-main">
+
+        <section class="equipo-wrap">
+
+            <header class="equipo-head">
+                <h1>EL MOTOR DE LA FUSIÓN:<br><span>Nuestro Equipo</span></h1>
+                <p>Expertos en arte y ciencia, dedicados a encontrar la quinta esencia de tu marca.</p>
+            </header>
+
+            <div class="equipo-grid">
+
+                <!-- franja verde (decorativa) -->
+                <div class="equipo-band" aria-hidden="true"></div>
+
+                <!-- ===== FILA 1 (3) ===== -->
+                <article class="miembro m-top">
+                    <img src="Img/jerson.png" alt="Jerson Smith Farro Toco">
+                    <h3>Jerson Smith Farro Toco</h3>
+                    <p class="rol">DIRECTOR GENERAL</p>
+                    <p class="desc">
+                        Define la misión y visión , estableciendo los objetivos estratégicos y financieros de cada
+                        proyecto. Es el garante de la rentabilidad.
+                    </p>
+                </article>
+
+                <article class="miembro m-top">
+                    <img src="Img/leydi.png" alt="Leidy Tayany Suyn Nizama">
+                    <h3>Leidy Tayany Suyn Nizama</h3>
+                    <p class="rol">EJECUTIVA DE CUENTAS / DIRECTOR CREATIVO</p>
+                    <p class="desc">
+                        LLidera la ideación creativa y es el punto de contacto principal , asegurando que las propuestas
+                        cumplan cronograma y presupuesto.
+                    </p>
+                </article>
+
+                <article class="miembro m-top">
+                    <img src="Img/diego.png" alt="Diego A. Garcia Puyo">
+                    <h3>Diego A. Garcia Puyo</h3>
+                    <p class="rol">PLANNER ESTRATEGA</p>
+                    <p class="desc">
+                        Investiga el mercado y las tendencias, identificando los insights clave para
+                        definir la estrategia de comunicación.
+                    </p>
+                </article>
+
+                <!-- ===== FILA 2 (2) ===== -->
+                <article class="miembro m-bot">
+                    <img src="Img/stanli.png" alt="Stalin S. Campos Palma">
+                    <h3>Stalin S. Campos Palma</h3>
+                    <p class="rol">DISEÑADOR GRÁFICO</p>
+                    <p class="desc">
+                        Crea y adapta todas las piezas gráficas (logos, posts) , asegurando la calidad visual y la
+                        coherencia de la marca.
+                    </p>
+                </article>
+
+                <article class="miembro m-bot">
+                    <img src="Img/gretta.png" alt="Gretta G. Díaz Molocho">
+                    <h3>Gretta G. Díaz Molocho</h3>
+                    <p class="rol">REDACTOR/A CREATIVO - COPYWRITER</p>
+                    <p class="desc">
+                        Crea los textos publicitarios, slogans y guiones , y define el tono de voz de la marca para
+                        conectar auténticamente.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="equipo-cta">
+                <a href="clientes.html" class="btn-equipo">CONOCE NUESTROS CLIENTES</a>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <div class="footer-left">
+                <img class="footer-logo" src="Img/Logo.png" alt="Logo Quinta Esencia" />
+            </div>
+
+            <!-- separador vertical -->
+            <div class="footer-divider" aria-hidden="true"></div>
+
+            <div class="footer-mid">
+                <p class="footer-title">Síguenos en nuestras redes:</p>
+
+                <ul class="social">
+                    <li>
+                        <a href="#" aria-label="Instagram">
+                            <img src="Img/instagram.png" alt="" class="social-icon">
+                            @Quinta_esencia
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="TikTok">
+                            <img src="Img/tiktok.png" alt="" class="social-icon">
+                            Quinta_esencia
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="LinkedIn">
+                            <img src="Img/linkedin.png" alt="" class="social-icon">
+                            @Quinta_esencia
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <p class="footer-place">Chiclayo - Perú</p>
+            </div>
+
+        </div>
+    </footer>
+    <script>
+        const cards = document.querySelectorAll('.miembro');
+
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        cards.forEach((c, i) => {
+            c.style.transitionDelay = (i * 90) + 'ms'; // efecto escalonado
+            io.observe(c);
+        });
+    </script>
+
+
+</body>
+
+</html>

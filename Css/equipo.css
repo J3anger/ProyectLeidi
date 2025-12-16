@@ -1,0 +1,248 @@
+/* =========================
+   EQUIPO (IGUAL A LA FOTO + ANIMACIÓN)
+   ========================= */
+
+.equipo-main{
+  background:#efe7d0;
+  padding: 56px 0 74px;
+  font-family: "Poppins", sans-serif;
+}
+
+.equipo-wrap{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+.equipo-head{
+  text-align:center;
+  margin-bottom: 22px;
+}
+
+.equipo-head h1{
+  margin:0;
+  font-weight: 900;
+  color:#0f3d2e;
+  line-height:1.05;
+  font-size: clamp(2.4rem, 4.6vw, 3rem);
+  letter-spacing:.01em;
+}
+
+.equipo-head h1 span{
+  display:block;
+  margin-top:6px;
+}
+
+.equipo-head p{
+  margin: 10px auto 0;
+  max-width: 720px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color:#0f3d2e;
+  opacity:.85;
+}
+
+/* ---------- GRID ---------- */
+.equipo-grid{
+  position: relative;
+  padding: 18px 0 10px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px 36px;
+  align-items:start;
+}
+
+/* Franja verde detrás de la fila superior */
+.equipo-band{
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 82px;
+  height: 474px;
+  background:#0f3d2e;
+  z-index:0;
+  border-radius: 8px;
+  overflow:hidden;
+}
+
+/* Diagonal inferior como la foto */
+.equipo-band::after{
+  content:"";
+  position:absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -115px;
+  height: 220px;
+  background:#efe7d0;
+  transform: rotate(-5deg);
+}
+
+/* ---------- TARJETAS ---------- */
+.miembro{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 10px;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+/* reveal */
+.miembro.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Imagen tipo “poster” */
+.miembro img{
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 auto 12px;
+  box-shadow: 0 16px 26px rgba(0,0,0,.18);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+
+/* Nombre */
+.miembro h3{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color:#0f3d2e;
+}
+
+/* Rol */
+.miembro .rol{
+  margin: 0 0 10px;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color:#0f3d2e;
+  opacity:.95;
+}
+
+/* Texto descripción */
+.miembro .desc{
+  margin: 0;
+  font-size: .82rem;
+  line-height: 1.55;
+  color:#0f3d2e;
+  opacity:.9;
+  max-width: 300px;
+  margin-inline:auto;
+}
+
+/* ========== Fila superior sobre franja verde (blanco legible) ========== */
+.m-top h3,
+.m-top .rol,
+.m-top .desc{
+      font-size: .85rem;
+  opacity: .95;
+  color:#ffffff;
+}
+
+.m-top .desc{
+  opacity: .92;
+}
+
+/* Mejora de legibilidad sobre verde */
+.m-top{
+  text-shadow: 0 2px 10px rgba(0,0,0,.20);
+}
+
+/* Hover suave */
+.miembro:hover img{
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 22px 34px rgba(0,0,0,.22);
+  filter: contrast(1.03);
+}
+
+/* ---------- Segunda fila centrada (2) ---------- */
+.miembro.m-bot:nth-of-type(4){
+  grid-column: 1 / span 1;
+  justify-self: center;
+}
+.miembro.m-bot:nth-of-type(5){
+  grid-column: 3 / span 1;
+  justify-self: center;
+}
+
+/* ---------- CTA ---------- */
+.equipo-cta{
+  display:grid;
+  place-items:center;
+  margin-top: 26px;
+}
+
+.btn-equipo{
+  background:#0f3d2e;
+  color:#fff;
+  text-decoration:none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 900;
+  letter-spacing:.04em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  position: relative;
+  overflow:hidden;
+}
+
+.btn-equipo::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: rotate(20deg) translateX(-70%);
+  animation: sheen 3.6s ease-in-out infinite;
+}
+
+.btn-equipo:hover{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+  filter: brightness(1.02);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px){
+  .equipo-grid{
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .equipo-band{
+    display:none; /* en móvil se oculta para no cortar */
+  }
+
+  /* en móvil todo vuelve a verde */
+  .m-top h3,
+  .m-top .rol,
+  .m-top .desc{
+    color:#0f3d2e;
+    text-shadow:none;
+  }
+
+  .miembro.m-bot:nth-of-type(4),
+  .miembro.m-bot:nth-of-type(5){
+    grid-column:auto;
+    justify-self: stretch;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .miembro, .miembro img, .btn-equipo::after{ transition:none!important; animation:none!important; }
+}
+
+/* animación botón */
+@keyframes sheen{
+  0%{ transform: rotate(20deg) translateX(-70%); opacity:0; }
+  15%{ opacity:1; }
+  35%{ transform: rotate(20deg) translateX(70%); opacity:0; }
+  100%{ opacity:0; }
+}

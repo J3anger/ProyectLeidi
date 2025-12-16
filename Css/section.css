@@ -1,0 +1,271 @@
+/* =========================
+   MAIN
+   ========================= */
+main{
+  width: 100%;
+  overflow-x: hidden;
+  animation: fadeUp .8s ease both;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero{
+  position: relative;
+  min-height: clamp(300px, 45vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  transform: scale(1.08);
+  animation: heroZoom 1.2s ease forwards;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.35)
+  );
+  z-index:1;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  padding: 40px 6%;
+}
+
+/* Caja tipo vidrio */
+.hero-quote{
+  max-width: 860px;
+  padding: 18px 26px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.18);
+  animation: fadeUp .9s ease .2s both;
+}
+
+.hero h2{
+  color:#fff;
+  font-size: clamp(18px, 2.6vw, 22px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =========================
+   BOTÓN GLOBAL (UNIFICADO)
+   ========================= */
+.btn,
+.btn-primary,
+.btn-secondary{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 30px;
+  border-radius: 12px;
+
+  background: var(--green);
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  box-shadow: 0 14px 32px rgba(0,0,0,.18);
+  cursor: pointer;
+  overflow: hidden;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+/* Brillo animado */
+.btn::after,
+.btn-primary::after,
+.btn-secondary::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.28),
+    transparent
+  );
+  transform: rotate(22deg) translateX(-70%);
+  animation: btnSheen 3.8s ease-in-out infinite;
+  pointer-events:none;
+}
+
+/* Hover */
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover{
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 18px 42px rgba(0,0,0,.24);
+  filter: brightness(1.05);
+}
+
+/* Active */
+.btn:active,
+.btn-primary:active,
+.btn-secondary:active{
+  transform: translateY(0) scale(.98);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+/* =========================
+   FUSIÓN
+   ========================= */
+.fusion{
+  padding: clamp(40px, 6vw, 60px) 0 32px;
+  text-align: center;
+}
+
+.fusion-inner{
+  max-width: 900px;
+  margin-inline: auto;
+  animation: fadeUp .8s ease both;
+}
+
+.fusion h2{
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 900;
+  letter-spacing: .05em;
+  margin-bottom: 14px;
+}
+
+.fusion p{
+  font-size: 15px;
+  color: #143f33;
+  line-height: 1.7;
+  opacity: .95;
+}
+
+/* =========================
+   VALORES
+   ========================= */
+.valores{
+  padding: 24px 0 50px;
+}
+
+.valores-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 26px;
+}
+
+.card{
+  border-radius: 12px;
+  padding: 24px 22px;
+  text-align: center;
+  box-shadow: 0 16px 32px rgba(0,0,0,.10);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fadeUp .9s ease both;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px rgba(0,0,0,.14);
+}
+
+.card h3{
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  margin-bottom: 10px;
+}
+
+.card p{
+  font-size: 14px;
+  line-height: 1.65;
+  opacity: .95;
+}
+
+.card-light{
+  background: #ffffff;
+  color: var(--green);
+}
+
+.card-dark{
+  background: #0a4b3c;
+  color: #ffffff;
+}
+
+/* =========================
+   CTA CENTER
+   ========================= */
+.cta-center{
+  text-align: center;
+  margin-top: 28px;
+  animation: fadeUp .9s ease both;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px){
+  .hero{
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px){
+  .valores-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-quote{
+    padding: 16px 20px;
+  }
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(16px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@keyframes heroZoom{
+  from{ transform: scale(1.15); }
+  to{ transform: scale(1.08); }
+}
+
+@keyframes btnSheen{
+  0%{ transform: rotate(22deg) translateX(-70%); opacity:0; }
+  15%{ opacity:1; }
+  35%{ transform: rotate(22deg) translateX(70%); opacity:0; }
+  100%{ opacity:0; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none!important; transition:none!important; }
+}
